@@ -8,11 +8,9 @@ app = FastAPI()
 # async def root():
 #     return {"message": "Hello World"}
 
-origins = [
-    ""
-]
+origins = ["http://localhost:5174"]
 
-#セキュリティ面のコード。Reactアプリと通信の際の権限関係。
+# セキュリティ面のコード。Reactアプリと通信の際の権限関係。
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -21,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 def Hello():
-    return{"Hello":"World!"}
+    return {"Hello": "World!"}
